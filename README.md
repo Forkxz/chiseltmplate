@@ -68,11 +68,11 @@ git push origin main
 ### Did it work?
 
 You should now have a working Chisel3 project.
-Warning!!!!
-Run below commands first and then use Metal in Vscode. Otherwise, Metal will cause error:
+If sbt cause error:
 ```sh
 java.io.IOException: User limit of inotify instances reached or too many open files
 ```
+Follow instruction from https://www.cnblogs.com/xwgli/p/12376806.html
 You can run the included test with:
 ```sh
 sbt test
