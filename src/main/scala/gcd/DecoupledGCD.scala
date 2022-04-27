@@ -1,5 +1,4 @@
 // See README.md for license details.
-
 package gcd
 
 import chisel3._
@@ -71,3 +70,8 @@ class DecoupledGcd(width: Int) extends Module {
     }
   }
 }
+
+object DecoupledGcd_gen extends App {
+    emitVerilog(new DecoupledGcd(8), Array("--target-dir", "generated/DecoupledGcd"))
+}
+// generate verilog

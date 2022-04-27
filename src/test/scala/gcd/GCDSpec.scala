@@ -1,11 +1,11 @@
 // See README.md for license details.
-
 package gcd
 
 import chisel3._
 import chiseltest._
-import org.scalatest.freespec.AnyFreeSpec
 import chisel3.experimental.BundleLiterals._
+import scala.util._ //random is included here
+import org.scalatest.flatspec.AnyFlatSpec
 
 /**
   * This is a trivial example of how to run this Specification
@@ -18,10 +18,10 @@ import chisel3.experimental.BundleLiterals._
   * sbt 'testOnly gcd.GcdDecoupledTester'
   * }}}
   */
-class GCDSpec extends AnyFreeSpec with ChiselScalatestTester {
-
-  "Gcd should calculate proper greatest common denominator" in {
-    test(new DecoupledGcd(16)) { dut =>
+class GCDSpec extends AnyFlatSpec with ChiselScalatestTester {
+  behavior of "GCDSpec"
+  it should "calculate proper greatest common denominator" in {
+    test(new DecoupledGcd(16)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
       dut.input.initSource()
       dut.input.setSourceClock(dut.clock)
       dut.output.initSink()

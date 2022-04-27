@@ -34,3 +34,4 @@ class GCD extends Module {
 object GCD_gen extends App {
     emitVerilog(new GCD(), Array("--target-dir", "generated/GCD"))
 }
+// generate verilog
